@@ -119,6 +119,70 @@ add_library(${CMAKE_PROJECT_NAME} SHARED
     config/config.cpp
     config/gpu_utils.cpp
     config/settings.cpp
+
+    gl/FPE/fpe4eswrapper.cpp
+    gl/FPE/string_utils.cpp
+    gl/FPE/arbconverter.cpp
+    gl/FPE/arbgenerator.cpp
+    gl/FPE/arbhelper.cpp
+    gl/FPE/arbparser.cpp
+    gl/FPE/array.cpp
+    gl/FPE/blend.cpp
+    gl/FPE/blit.cpp
+    gl/FPE/buffers.cpp
+    gl/FPE/build_info.cpp
+    gl/FPE/debug.cpp
+    gl/FPE/decompress.cpp
+    gl/FPE/depth.cpp
+    gl/FPE/directstate.cpp
+    gl/FPE/drawing.cpp
+    gl/FPE/enable.cpp
+    gl/FPE/envvars.cpp
+    gl/FPE/eval.cpp
+    gl/FPE/face.cpp
+    gl/FPE/getter.cpp
+    gl/FPE/fog.cpp
+    gl/FPE/fpe.cpp
+    gl/FPE/fpe_cache.cpp
+    gl/FPE/fpe_shader.cpp
+    gl/FPE/framebuffers.cpp
+    gl/FPE/gl_lookup.cpp
+    gl/FPE/fpe_core.cpp
+    gl/FPE/glstate.cpp
+    gl/FPE/hint.cpp
+    gl/FPE/init.cpp
+    gl/FPE/light.cpp
+    gl/FPE/line.cpp
+    gl/FPE/list.cpp
+    gl/FPE/listdraw.cpp
+    gl/FPE/listrl.cpp
+    gl/FPE/matrix.cpp
+    gl/FPE/matvec.cpp
+    gl/FPE/oldprogram.cpp
+    gl/FPE/pixel.cpp
+    gl/FPE/planes.cpp
+    gl/FPE/pointsprite.cpp
+    gl/FPE/preproc.cpp
+    gl/FPE/program.cpp
+    gl/FPE/queries.cpp
+    gl/FPE/raster.cpp
+    gl/FPE/render.cpp
+    gl/FPE/shader.cpp
+    gl/FPE/shaderconv.cpp
+    gl/FPE/shader_hacks.cpp
+    gl/FPE/stack.cpp
+    gl/FPE/stencil.cpp
+    gl/FPE/stubs.cpp
+    gl/FPE/texenv.cpp
+    gl/FPE/texgen.cpp
+    gl/FPE/texture.cpp
+    gl/FPE/texture_compressed.cpp
+    gl/FPE/texture_params.cpp
+    gl/FPE/texture_read.cpp
+    gl/FPE/texture_3d.cpp
+    gl/FPE/uniform.cpp
+    gl/FPE/vertexattrib.cpp
+    gl/FPE/samplers.cpp
 )
 
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
@@ -153,7 +217,7 @@ endif()
 if (PROFILING)
     find_package(Threads)
     include_directories(${CMAKE_SOURCE_DIR}/3rdparty/perfetto/sdk)
-    add_library(perfetto STATIC ${CMAKE_SOURCE_DIR}/3rdparty/perfetto/sdk/perfetto.cc)
+    add_library(perfetto STATIC ${CMAKE_SOURCE_DIR}/3rdparty/perfetto/sdk/perfetto.cppc)
     target_link_libraries(${CMAKE_PROJECT_NAME} perfetto ${CMAKE_THREAD_LIBS_INIT})
     target_compile_definitions(${CMAKE_PROJECT_NAME} PUBLIC PROFILING=1)
 endif()
